@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 function Stripe() {
   let data = [
     {url:"https://i.pinimg.com/1200x/bf/32/c5/bf32c59a2162b3a83c78c2e5dac96446.jpg"},
@@ -9,7 +10,7 @@ function Stripe() {
     {url:"https://i.pinimg.com/736x/c2/bb/97/c2bb97d70c33197daafe56c2167d37f6.jpg"},
   ]
   return (
-    <div className='w-full flex mt-20 '>
+    <div className='w-full flex mt-20 Stripe'>
       {data.map((item, index) => (
         <div className='overflow-hidden h-30  w-[25%] '>
           <img src={item.url} className='h-30 w-100 object-cover' alt="" />
@@ -18,5 +19,4 @@ function Stripe() {
     </div>
   )
 }
-
-export default Stripe
+export default Stripe;
