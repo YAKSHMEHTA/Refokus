@@ -9,7 +9,7 @@ function Product({ val }) {
         <div className="dets w-1/3">
           <p className="mb-10">{val.description}</p>
           <div className="flex gap-4 justify-between">
-            <Button ></Button>
+            {val.live && <Button ></Button>}
             {val.more && <Button info="More" ></Button>}
           </div>
         </div>

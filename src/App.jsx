@@ -4,6 +4,7 @@ import Work from './Components/Work'
 import Stripes from './Components/Stipres'
 import "./index.css";
 import Products from './Components/Products';
+import Slides from './Components/Slides';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Work />
       <Stripes className="" />
       <Products></Products>
+      <Slides></Slides>
     </div>
     
   )
