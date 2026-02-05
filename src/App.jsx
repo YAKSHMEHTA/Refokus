@@ -5,6 +5,7 @@ import Stripes from './Components/Stipres'
 import "./index.css";
 import Products from './Components/Products';
 import Slides from './Components/Slides';
+import Cards from './Components/Cards';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Stripes className="" />
       <Products></Products>
       <Slides></Slides>
+      <Cards/>
     </div>
     
   )

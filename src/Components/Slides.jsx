@@ -19,7 +19,7 @@ function Slides() {
 ];
 
   return (
-    <div>
+    <div className="py-10 mt-20">
       {images.map((image,index)=> <Slider url={image}/>)}
     </div>
   );
