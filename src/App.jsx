@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useGSAP } from "@gsap/react";
 import Navbar from './Components/Navbar'
 import Work from './Components/Work'
 import Stripes from './Components/Stipres'
@@ -6,8 +7,12 @@ import "./index.css";
 import Products from './Components/Products';
 import Slides from './Components/Slides';
 import Cards from './Components/Cards';
+import LocomotiveScroll from 'locomotive-scroll';
+
+
 
 function App() {
+  const scroll = new LocomotiveScroll();
   return (
     
     <div className='w-full  min-h-screen overflow-x-hidden  py-6 bg-zinc-900 font-["satoshi "] text-white'>

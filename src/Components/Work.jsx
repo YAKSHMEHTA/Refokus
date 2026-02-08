@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { useScroll } from "framer-motion";
 
 function Work() {
-  var images = [
+  const [images, setImages] = useState([
     {
       url: "https://i.pinimg.com/736x/dc/d2/02/dcd20235abccefe2a02ab7ea37b5ac0c.jpg",
-      top: "50",
+      top: "50%",
       left: "50%",
       isActive: true,
     },
@@ -38,23 +39,70 @@ function Work() {
       left: "55%",
       isActive: false,
     },
-  ];
+  ]);
+
+  const { scrollYProgress } = useScroll();
+
+  function imageShow(arr) {
+    setImages((prev) =>
+      prev.map((item, index) =>
+        arr.indexOf(index) === -1
+          ? { ...item, isActive: false }
+          : { ...item, isActive: true }
+      )
+    );
+  }
+
+  scrollYProgress.on("change", (data) => {
+    let value = Math.floor(data * 100);
+
+    console.log(value);
+
+    switch (true) {
+      case value < 1:
+        imageShow([0]);
+        break;
+
+      case value < 3:
+        imageShow([0, 1]);
+        break;
+
+      case value < 6:
+        imageShow([0, 1, 2]);
+        break;
+
+      case value < 9:
+        imageShow([0, 1, 2, 3]);
+        break;
+
+      case value < 12:
+        imageShow([0, 1, 2, 3, 4]);
+        break;
+
+      default:
+        imageShow([0, 1, 2, 3, 4, 5]);
+        break;
+    }
+  });
+
   return (
-    <div className="w-full ">
-      <div className="max-w-screen-xl relative text-center  mx-auto">
+    <div className="w-full">
+      <div className="max-w-screen-xl relative text-center mx-auto">
         <h1 className="text-[30vw] font-medium select-none leading-none">
           work
         </h1>
+
         <div className="w-full absolute top-0 h-full">
           {images.map((image, index) =>
             image.isActive ? (
               <img
-                className="w-60 absolute -translate-x-[50%] translate-y-[50%] rounded-lg"
+                key={index}
+                className="w-60 absolute -translate-x-1/2 -translate-y-1/2 rounded-lg"
                 style={{ top: image.top, left: image.left }}
                 src={image.url}
                 alt=""
               />
-            ) : null,
+            ) : null
           )}
         </div>
       </div>
